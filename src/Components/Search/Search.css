@@ -1,0 +1,8 @@
+.tex{
+    font-family: Arial, Helvetica, sans-serif;
+    color:green
+}
+
+#tex .form-control:focus {
+    border-color: gray;
+  }

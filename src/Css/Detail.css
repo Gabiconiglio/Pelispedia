@@ -1,0 +1,51 @@
+#detalle {
+  color: gray;
+  font-family: Arial, Helvetica, sans-serif;
+  margin-top: 25px;
+}
+
+#descripcion {
+  text-justify: auto;
+  text-align: left;
+  font-family: Arial, Helvetica, sans-serif;
+  border-top: 3px solid grey;
+  padding-top: 10px;
+  margin-top: 10px;
+}
+
+#descripcion strong {
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+}
+#Genero{
+  text-align: left;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#fecha strong {
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#fecha {
+  text-align: left;
+}
+
+#puntuacion{
+  text-align: left;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#duracion{
+  text-align: left;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#datos{
+  text-align: left;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.produc{
+  text-align: left;
+  font-family: Arial, Helvetica, sans-serif;
+}

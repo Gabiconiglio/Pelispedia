@@ -1,0 +1,51 @@
+.test {
+  height: 40px;
+}
+
+#titulo{
+    font-family: Arial, Helvetica, sans-serif;
+    
+}
+
+.Films {
+  text-decoration: none;
+  color: gray;
+  padding-top: 8px;
+  padding-right: 20px;
+  font-family: Arial, Helvetica, sans-serif
+}
+
+.Categorias {
+  text-decoration: none;
+  color: gray;
+  padding-right: 20px;
+  font-family: Arial, Helvetica, sans-serif
+}
+
+.Series{
+  text-decoration: none;
+  color: gray;
+  padding-right: 20px;
+  padding-top: 8px;
+  font-family: Arial, Helvetica, sans-serif
+}
+
+.Favoritos {
+  text-decoration: none;
+  color: gray;
+  padding-top: 8px;
+  padding-right: 20px;
+  font-family: Arial, Helvetica, sans-serif
+}
+
+.Films:hover,.Categorias:hover,
+.Favoritos:hover,
+.Series:hover {
+  color: white;
+}
+
+.Categorias{
+  color: gray;
+  font-family: Arial, Helvetica, sans-serif;
+}
+

@@ -1,0 +1,14 @@
+.imgNot {
+    width: 500px;
+    height:500px;
+    align-items: flex-start;
+    margin: 0 auto; 
+    padding: 0;
+}
+
+#btnBack {
+    margin-top: 80px;
+    margin-bottom: 0px;
+    padding: 10px 20px; 
+}
+

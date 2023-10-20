@@ -1,0 +1,22 @@
+#foto { 
+    margin: 10px ; 
+    opacity: 0.7; 
+    width: 500px;
+    height: 500px;
+    margin: 0;
+    display: flex;
+    align-items: flex-start; 
+    
+  }
+
+
+  #carousel{
+    width: 350px;
+    height: 100px;
+    margin: 0;
+    display: flex;
+    align-items: flex-start; 
+  }
+  
+  
+  

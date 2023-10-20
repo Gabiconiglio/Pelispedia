@@ -1,0 +1,16 @@
+.txtSeries{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    color: red;
+    text-decoration: none;
+    background-color: white;
+}
+
+.link:hover {
+    color: gray;
+  }
+  
+  .link {
+    color: black; 
+    text-decoration: none; 
+  }

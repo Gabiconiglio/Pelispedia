@@ -1,0 +1,30 @@
+.movie-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+  justify-items: center;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 8px;
+  color: gray;
+  padding-top: 10px;
+}
+.tit {
+  color: gray;
+  text-align: left;
+  padding-top: 75px;
+  padding-bottom: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.titulo2 {
+  color: gray;
+  text-align: left;
+  padding-top: 500px;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#caruselHome{
+  margin: 0;
+}
