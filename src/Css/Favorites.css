@@ -1,16 +1,36 @@
-#Favo{
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr)); 
-    gap: 1rem; 
-    justify-items: center;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 8px;
-    color: gray;
-    padding-top: 15px;
-    padding-bottom: 30px;
-    padding-left: 10px;
-    padding-right: 10px;
-    height: 100%;
-    width: 100% ;
- 
+#tituloFav {
+  padding-top: 70px;
+  color: gray;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#Favo {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+  justify-items: center;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 8px;
+  color: gray;
+  padding-top: 15px;
+  padding-bottom: 30px;
+  padding-left: 10px;
+  padding-right: 10px;
+  height: 100%;
+  width: 100%;
+}
+
+.cargando {
+  margin-top: 1500px;
+  margin-bottom: 1500px;
+}
+.NoSeleccion {
+  padding-top:1px;
+  padding-bottom: 130px;
+  padding-left: 20px;
+  color: gray;
+  text-align: left;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
 }

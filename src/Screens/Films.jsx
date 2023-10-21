@@ -47,7 +47,7 @@ function Films() {
               />
             ))
         ) : (
-          <DotPulse size={40} speed={1.3} color="black" />
+          <DotPulse size={40} speed={1.3} color="black" className="cargando" />
         )}
       </ul>
       <Paginador
