@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import CardDetail from "../Components/CardDetail/CardDetail.jsx";
 import "../Css/Detail.css";
 
-function Detail() {
+function Detail(cat) {
   const [movies, setMovies] = useState([]);
   const [series, setSeries] = useState([]);
   const [favorites, setFavorites] = useState([]);
@@ -12,7 +12,9 @@ function Detail() {
   const BASE_URL_MOVIES = `https://api.themoviedb.org/3/movie/${idDetail}?api_key=4cb4d24dfb40658a8f14ee7e34eeecec&language=es-es`;
   const BASE_URL_SERIES = `https://api.themoviedb.org/3/tv/${idDetail}?api_key=4cb4d24dfb40658a8f14ee7e34eeecec&language=es-es`;
 
-  if (category === "Films") {
+  console.log(cat)
+
+  if (category === "Films"|| cat==="Films") {
     useEffect(() => {
       fetch(BASE_URL_MOVIES)
         .then((res) => res.json())
@@ -97,14 +99,14 @@ function Detail() {
               </p>
             </div>
           ) : null}
-          <p className="produc">
+          {/* <p className="produc">
             <strong>Productora: </strong>
             {series?.production_companies
               ? series.production_companies[0].name
               : movies?.production_companies && movies.production_companies[0]
               ? movies.production_companies[0].name
               : "No disponible"}
-          </p>
+          </p> */}
         </div>
       </div>
     </>

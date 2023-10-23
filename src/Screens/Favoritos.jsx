@@ -16,14 +16,24 @@ function Favorites() {
     if (storedFavoritesFromLocalStorage.length > 0) {
       Promise.all(
         storedFavoritesFromLocalStorage.map((idDetail) =>
-          fetch(
-            `https://api.themoviedb.org/3/movie/${idDetail}?api_key=4cb4d24dfb40658a8f14ee7e34eeecec&adult=false&language=es-es`
-          ).then((res) => res.json())
+          Promise.all([
+            fetch(
+              `https://api.themoviedb.org/3/movie/${idDetail}?api_key=4cb4d24dfb40658a8f14ee7e34eeecec&adult=false&language=es-es`
+            ),
+            fetch(
+              `https://api.themoviedb.org/3/tv/${idDetail}?api_key=4cb4d24dfb40658a8f14ee7e34eeecec&adult=false&language=es-es`
+            ),
+          ]).then(([response1, response2]) => {
+            if (response2.status === 200) {
+              return response2.json();
+            } else {
+              return response1.json();
+            }
+          })
         )
       )
         .then((data) => {
           setFavoriteData(data);
-          setStoredFavorites(storedFavoritesFromLocalStorage);
         })
         .catch((error) => console.error(error));
     }

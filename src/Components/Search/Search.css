@@ -6,3 +6,10 @@
 #tex .form-control:focus {
     border-color: gray;
   }
+.lupa{
+    color:white
+  }
+
+#btnSe:hover{
+    color:gray;
+}

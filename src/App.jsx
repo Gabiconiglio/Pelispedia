@@ -1,4 +1,3 @@
-import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Nabvar from "./Components/Nabvar/Nabvar.jsx";
 import Home from "./Screens/Home.jsx";
@@ -8,6 +7,8 @@ import NotFound404 from "./Screens/NotFound404.jsx";
 import Favoritos from "./Screens/Favoritos.jsx";
 import Footer from "./Components/Footer/Footer.jsx";
 import Detail from "./Screens/Detail.jsx";
+import Results from "./Screens/Results.jsx";
+import "./App.css";
 
 function App() {
   return (
@@ -20,9 +21,11 @@ function App() {
         <Route path="/Series" element={<Series/>} />
         <Route path="/Favoritos" element={<Favoritos />} />
         <Route path="/:category/Detail/:idDetail" element={<Detail />} />
+        <Route path='/results/:query' element={<Results />}/>
+        <Route path='/results/:query/:category/Detail/:idDetail' element={<Detail />}/>
         <Route path="*" element={<NotFound404 />} />
       </Routes>
-      <Footer />
+      {/* <Footer /> */}
     </BrowserRouter>
   );
 }
