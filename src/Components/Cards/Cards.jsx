@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import imagen from "../Cards/noDisponible.jpg";
 
 import "../Cards/Cards.css";
 
@@ -23,11 +24,21 @@ function Card({ data, categoria, setFavorite, favorites }) {
   return (
     <div className="card w-96 bg-base-100 shadow-xl">
       <figure className="img">
-        <img
-          src={API_IMG + data.poster_path}
-          alt={`Slide ${data.index}`}
-          className="card-image"
-        />
+        {data.poster_path ? (
+          <img
+            src={API_IMG + data.poster_path}
+            alt={`Slide ${data.index}`}
+            className="card-image"
+          />
+        ) : (
+          <div className="noDispo">
+            <img
+              src={imagen}
+              alt={`Slide ${data.index}`}
+              className="card-image"
+            />
+          </div>
+        )}
       </figure>
       <div className="card-body">
         <div className="card-content">
@@ -40,21 +51,18 @@ function Card({ data, categoria, setFavorite, favorites }) {
           </div>
           <div className="card-actions justify-end">
             <button className="btn btn-dark" id="btn">
-              {categoria == null ? (
-                <Link
-                  to={`detail/${data.id}`}
-                  style={{ color: "gray", textDecoration: "none" }}
-                >
-                  Detalle
-                </Link>
-              ) : (
-                <Link
-                  to={`Films/detail/${data.id}`}
-                  style={{ color: "gray", textDecoration: "none" }}
-                >
-                  Detalle
-                </Link>
-              )}
+              <Link
+                to={
+                  categoria === "Films"
+                    ? `Films/detail/${data.id}`
+                    : categoria === "Series"
+                    ? `Series/detail/${data.id}`
+                    : `detail/${data.id}`
+                }
+                style={{ color: "gray", textDecoration: "none" }}
+              >
+                Detalle
+              </Link>
             </button>
             <button
               onClick={handleFavorite}

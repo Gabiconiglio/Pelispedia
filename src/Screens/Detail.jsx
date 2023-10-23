@@ -12,9 +12,8 @@ function Detail(cat) {
   const BASE_URL_MOVIES = `https://api.themoviedb.org/3/movie/${idDetail}?api_key=4cb4d24dfb40658a8f14ee7e34eeecec&language=es-es`;
   const BASE_URL_SERIES = `https://api.themoviedb.org/3/tv/${idDetail}?api_key=4cb4d24dfb40658a8f14ee7e34eeecec&language=es-es`;
 
-  console.log(cat)
 
-  if (category === "Films"|| cat==="Films") {
+  if (category === "Films" || cat === "Films") {
     useEffect(() => {
       fetch(BASE_URL_MOVIES)
         .then((res) => res.json())
@@ -33,7 +32,7 @@ function Detail(cat) {
   }
 
   useEffect(() => {
-    const storedFavorites = JSON.parse(localStorage.getItem('favorites'));
+    const storedFavorites = JSON.parse(localStorage.getItem("favorites"));
     storedFavorites && setFavorites(storedFavorites);
   }, []);
 
@@ -41,15 +40,25 @@ function Detail(cat) {
     <>
       <div className="card-details-container">
         {category === "Series" ? (
-          <CardDetail key={series.id} data={series} categoria={category}favorites={favorites}
-          setFavorite={setFavorites}   />
+          <CardDetail
+            key={series.id}
+            data={series}
+            categoria={category}
+            favorites={favorites}
+            setFavorite={setFavorites}
+          />
         ) : (
-          <CardDetail key={movies.id} data={movies} categoria={category} favorites={favorites}
-          setFavorite={setFavorites}  />
+          <CardDetail
+            key={movies.id}
+            data={movies}
+            categoria={category}
+            favorites={favorites}
+            setFavorite={setFavorites}
+          />
         )}
         <div className="text-details">
           <h1 className="d-d-flex align-items-center" id="detalle">
-           {movies?.title || series?.name || "No disponible"}
+            {movies?.title || series?.name || "No disponible"}
           </h1>
           <p id="descripcion">
             <strong>Descripción: </strong>
@@ -99,14 +108,20 @@ function Detail(cat) {
               </p>
             </div>
           ) : null}
-          {/* <p className="produc">
+          <p className="produc">
             <strong>Productora: </strong>
-            {series?.production_companies
+            {series?.production_companies &&
+            series.production_companies.length == 0
+              ? "No disponible"
+              : series?.production_companies
               ? series.production_companies[0].name
+              : movies?.production_companies &&
+                movies.production_companies.length == 0
+              ? "No disponible"
               : movies?.production_companies && movies.production_companies[0]
               ? movies.production_companies[0].name
-              : "No disponible"}
-          </p> */}
+              : "No hay información de productoras"}
+          </p>
         </div>
       </div>
     </>

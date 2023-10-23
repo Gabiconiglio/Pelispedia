@@ -28,11 +28,10 @@ function Home() {
   return (
     <>
       <h1 className="tit">Las mejores puntuadas</h1>
-      <div className="d-flex align-items-center flex-column">
+      <div className="Carrusel">
         <Carrusel id="caruselHome" />
       </div>
-      <section>
-        <h1 className="titulo2">Nuevos ingresos</h1>
+        <h1 className="tituloHome2">Nuevos ingresos</h1>
         <ul className="movie-grid">
           {movies.length > 0 ? (
             movies
@@ -50,7 +49,6 @@ function Home() {
             <DotPulse size={40} speed={1.3} color="black" />
           )}
         </ul>
-      </section>
     </>
   );
 }

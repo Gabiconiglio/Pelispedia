@@ -40,10 +40,6 @@ function Nabvar() {
             <Link to={"/Series"} className="Series">
               Series
             </Link>
-            <NavDropdown className="Categorias" title="Categorías" id="basic-nav-dropdown">
-              <NavDropdown.Item title="Películas">Películas</NavDropdown.Item>
-              <NavDropdown.Item title="Series">Series</NavDropdown.Item>
-            </NavDropdown>
             <Link to={"/Favoritos"} className="Favoritos">
               Favoritos
             </Link>

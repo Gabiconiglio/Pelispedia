@@ -25,7 +25,7 @@ function App() {
         <Route path='/results/:query/:category/Detail/:idDetail' element={<Detail />}/>
         <Route path="*" element={<NotFound404 />} />
       </Routes>
-      {/* <Footer /> */}
+      <Footer />
     </BrowserRouter>
   );
 }

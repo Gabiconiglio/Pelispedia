@@ -41,11 +41,11 @@ function Results() {
         <h1 className="text-center my-6" id="resultado">
           Resultados para: {query}
         </h1>
-        <h3 className="titulo1">Peliculas</h3>
+        <h1 className="tituloResult1">Películas</h1>
         <ul className="movie-grid">
           {data.length > 0 ? (
             data
-              .slice(0, 10)
+              .slice(0, 12)
               .map((movie) => (
                 <Cards
                   key={movie.id}
@@ -64,11 +64,11 @@ function Results() {
             />
           )}
         </ul>
-        <h3 className="titulo2">Series</h3>
+        <h1 className="tituloResult2">Series</h1>
         <ul className="movie-grid">
           {dataSeries.length > 0 ? (
             dataSeries
-              .slice(0, 10)
+              .slice(0, 12)
               .map((serie) => (
                 <Cards
                   key={serie.id}

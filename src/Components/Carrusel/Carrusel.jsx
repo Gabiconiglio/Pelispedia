@@ -28,7 +28,7 @@ function Carrusel() {
               alt={`Slide ${index}`}
             />
             <Carousel.Caption>
-              <h4 style={{color:"Black"}}>{movie.title}</h4>
+              <h4 style={{color:"black"}}>{movie.title}</h4>
             </Carousel.Caption>
           </Carousel.Item>
         ))}

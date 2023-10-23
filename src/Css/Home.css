@@ -7,24 +7,33 @@
   font-size: 8px;
   color: gray;
   padding-top: 10px;
+  
 }
 .tit {
   color: gray;
   text-align: left;
-  padding-top: 75px;
-  padding-bottom: 20px;
+  margin-top: 50px;
+  margin-left: 50px;
+  margin-bottom: 15px;
+  padding-top: 50px;
+  padding-top: 50px;
+  padding-left: 10px;
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.titulo2 {
+.tituloHome2 {
   color: gray;
   text-align: left;
-  padding-top: 500px;
+  margin-top: 500px;
+  margin-left: 50px;
+  margin-bottom: 0px;
   padding-left: 10px;
-  padding-right: 10px;
   font-family: Arial, Helvetica, sans-serif;
 }
 
-#caruselHome{
-  margin: o ;
+.Carrusel{
+  margin:0;
+  margin-left: 400px;
 }
+
+
