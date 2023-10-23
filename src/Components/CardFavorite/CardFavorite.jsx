@@ -1,9 +1,12 @@
-import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-
 import "../CardFavorite/CardFavorite.css";
 
-function Card({ data, categoria, setFavorite, favorites }) {
+function CardFavorite({
+  data,
+  categoria,
+  setFavorite,
+  favorites,
+  removeFavorite,
+}) {
   const API_IMG = "https://image.tmdb.org/t/p/w500";
 
   const isFavorite =
@@ -17,6 +20,10 @@ function Card({ data, categoria, setFavorite, favorites }) {
 
       setFavorite(updatedFavorites);
       localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
+    }
+
+    if (removeFavorite) {
+      removeFavorite(data.id);
     }
   };
 
@@ -42,13 +49,13 @@ function Card({ data, categoria, setFavorite, favorites }) {
             <button
               onClick={handleFavorite}
               className="btn btn-dark"
-              style={{ color: isFavorite ? "red" : "white" }}
+              style={{ color: isFavorite ? "white" : "red" }}
             >
               {favorites &&
               Array.isArray(favorites) &&
               favorites.includes(data.id)
-                ? "❤"
-                : "🤍"}
+                ? "🤍"
+                : "❤"}
             </button>
           </div>
         </div>
@@ -56,5 +63,4 @@ function Card({ data, categoria, setFavorite, favorites }) {
     </div>
   );
 }
-
-export default Card;
+export default CardFavorite;

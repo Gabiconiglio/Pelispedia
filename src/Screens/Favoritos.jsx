@@ -6,7 +6,6 @@ import "../Components/Loader/Loader.css";
 
 function Favorites() {
   const [favoriteData, setFavoriteData] = useState([]);
-  const [storedFavorites, setStoredFavorites] = useState([]);
 
   // carga la card por cada llamado
   useEffect(() => {
@@ -39,6 +38,14 @@ function Favorites() {
     }
   }, []);
 
+  const removeFavorite = (idDetail) => {
+    const updatedFavorites = favoriteData.filter(
+      (data) => data.id !== idDetail
+    );
+    setFavoriteData(updatedFavorites);
+    localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
+  };
+
   return (
     <div>
       <h2 className="text-center my-6" id="tituloFav">
@@ -50,7 +57,13 @@ function Favorites() {
       >
         {favoriteData.length > 0 ? (
           favoriteData.map((data) => (
-            <CardFavorite key={data.id} data={data} favorites={favoriteData} />
+            <CardFavorite
+              key={data.id}
+              data={data}
+              favorites={favoriteData}
+              setFavorite={setFavoriteData}
+              removeFavorite={removeFavorite}
+            />
           ))
         ) : (
           <DotPulse size={40} speed={1.3} color="black" className="cargando" />
