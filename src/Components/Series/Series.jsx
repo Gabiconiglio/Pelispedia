@@ -23,7 +23,9 @@ function Series() {
         {series.length > 0 ? (
           series.slice(0, 20).map((genre) => (
             <NavDropdown.Item eventKey={genre.id}>
-              <Link to={`/Series/${genre.name}`} className="link">{genre.name}</Link>
+              <Link to={`/Series/${genre.name}`} className="link">
+                {genre.name}
+              </Link>
             </NavDropdown.Item>
           ))
         ) : (

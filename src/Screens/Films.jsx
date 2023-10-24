@@ -44,6 +44,7 @@ function Films() {
                 data={movie}
                 favorites={favorites}
                 setFavorite={setFavorites}
+                categoria={categoria}
               />
             ))
         ) : (

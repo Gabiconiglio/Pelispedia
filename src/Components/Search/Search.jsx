@@ -20,7 +20,7 @@ function Search() {
 
       <Button variant="dark">
         <Link to={`/results/${input}`}>
-        <FontAwesomeIcon icon={faSearch} className="lupa" />
+          <FontAwesomeIcon icon={faSearch} className="lupa" />
         </Link>
       </Button>
     </form>

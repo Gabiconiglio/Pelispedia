@@ -1,14 +1,10 @@
-import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
-import Form from "react-bootstrap/Form";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import NavDropdown from "react-bootstrap/NavDropdown";
 import "../Nabvar/Nabvar.css";
 import PelispediaLogo from "../Nabvar/Pelispedia.png";
 import { Link } from "react-router-dom";
 import Search from "../Search/Search.jsx";
-import Series from "../Series/Series.jsx";
 
 function Nabvar() {
   return (
@@ -29,7 +25,9 @@ function Nabvar() {
               id="icono"
             />
           </Link>
-          <Navbar.Brand className="d-flex align-items-center" id="titulo">Pelispedia</Navbar.Brand>
+          <Navbar.Brand className="d-flex align-items-center" id="titulo">
+            Pelispedia
+          </Navbar.Brand>
         </div>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">

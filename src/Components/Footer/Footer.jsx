@@ -20,10 +20,18 @@ export default function Footer() {
           </div>
         </div>
         <div className="d-flex align-items-center flex-column">
-          <a className="me-2 text-reset" href="https://github.com/Gabiconiglio/Pelispedia" target="blank">
+          <a
+            className="me-2 text-reset"
+            href="https://github.com/Gabiconiglio/Pelispedia"
+            target="blank"
+          >
             <img className="git" src={Icono} alt="GitHub" />
           </a>
-          <a className="me-2 text-reset" href="mailto:Gabrielconiglio@hotmail.com" style={{ textDecoration: "none" }}>
+          <a
+            className="me-2 text-reset"
+            href="mailto:Gabrielconiglio@hotmail.com"
+            style={{ textDecoration: "none" }}
+          >
             <p id="mail">Gabrielconiglio@hotmail.com</p>
             <p className="nombre">Gabriel Coniglio</p>
           </a>

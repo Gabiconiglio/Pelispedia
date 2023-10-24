@@ -7,30 +7,33 @@ import "../Components/Loader/Loader.css";
 function Favorites() {
   const [favoriteData, setFavoriteData] = useState([]);
 
-  // carga la card por cada llamado
   useEffect(() => {
     const storedFavoritesFromLocalStorage =
       JSON.parse(localStorage.getItem("favorites")) || [];
 
     if (storedFavoritesFromLocalStorage.length > 0) {
       Promise.all(
-        storedFavoritesFromLocalStorage.map((idDetail) =>
-          Promise.all([
-            fetch(
-              `https://api.themoviedb.org/3/movie/${idDetail}?api_key=4cb4d24dfb40658a8f14ee7e34eeecec&adult=false&language=es-es`
-            ),
-            fetch(
-              `https://api.themoviedb.org/3/tv/${idDetail}?api_key=4cb4d24dfb40658a8f14ee7e34eeecec&adult=false&language=es-es`
-            ),
-          ]).then(([response1, response2]) => {
-            if (response2.status === 200) {
-              return response2.json();
-            } else {
-              return response1.json();
-            }
-          })
-        )
+        storedFavoritesFromLocalStorage.map(({ id, categoria }) => {
+          if (
+            categoria === "Films" ||
+            categoria === "FilmsHome" ||
+            categoria === "FilmsDet"
+          ) {
+            return fetch(
+              `https://api.themoviedb.org/3/movie/${id}?api_key=4cb4d24dfb40658a8f14ee7e34eeecec&adult=false&language=es-es`
+            );
+          } else if (categoria === "Series" || categoria === "SeriesDet") {
+            return fetch(
+              `https://api.themoviedb.org/3/tv/${id}?api_key=4cb4d24dfb40658a8f14ee7e34eeecec&adult=false&language=es-es`
+            );
+          } else {
+            return Promise.reject("Categoría desconocida en favoritos");
+          }
+        })
       )
+        .then((responses) => {
+          return Promise.all(responses.map((response) => response.json()));
+        })
         .then((data) => {
           setFavoriteData(data);
         })

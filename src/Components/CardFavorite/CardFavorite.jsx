@@ -1,12 +1,6 @@
 import "../CardFavorite/CardFavorite.css";
 
-function CardFavorite({
-  data,
-  categoria,
-  setFavorite,
-  favorites,
-  removeFavorite,
-}) {
+function CardFavorite({ data, setFavorite, favorites, removeFavorite }) {
   const API_IMG = "https://image.tmdb.org/t/p/w500";
 
   const isFavorite =

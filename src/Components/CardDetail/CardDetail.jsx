@@ -1,25 +1,34 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import "../CardDetail/CardDetail.css";
 
-function CardDetail({ data, categoria,setFavorite, favorites  }) {
-  
+function CardDetail({ data, categoria, setFavorite, favorites }) {
   const API_IMG = "https://image.tmdb.org/t/p/w500";
-  
 
-  const isFavorite = favorites && Array.isArray(favorites) && favorites.includes(data.id);
+  const isFavorite = favorites.some(
+    (item) => item.id === data.id && item.categoria === categoria
+  );
 
   const handleFavorite = () => {
     if (Array.isArray(favorites)) {
-      const updatedFavorites = isFavorite
-        ? favorites.filter((id) => id !== data.id)
-        : [...favorites, data.id];
+      const isFavorite = favorites.some(
+        (item) => item.id === data.id && item.categoria === categoria
+      );
 
-      setFavorite(updatedFavorites);
-      localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
+      if (isFavorite) {
+        const updatedFavorites = favorites.filter(
+          (item) => item.id !== data.id && item.categoria !== categoria
+        );
+
+        setFavorite(updatedFavorites);
+        localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
+      } else {
+        const updatedFavorites = [...favorites, { id: data.id, categoria }];
+
+        setFavorite(updatedFavorites);
+        localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
+      }
     }
   };
-  
 
   return (
     <div className="card w-96 bg-base-100 shadow-xl">
@@ -54,9 +63,15 @@ function CardDetail({ data, categoria,setFavorite, favorites  }) {
             <button
               onClick={handleFavorite}
               className="btn btn-dark"
-              style={{ color: favorites && Array.isArray(favorites) && favorites.includes(data.id) ? "red" : "white" }}
+              style={{
+                color: favorites.some(
+                  (item) => item.id === data.id && item.categoria === categoria
+                )
+                  ? "red"
+                  : "white",
+              }}
             >
-              {isFavorite? "❤" : "🤍"}
+              {isFavorite ? "❤" : "🤍"}
             </button>
           </div>
         </div>

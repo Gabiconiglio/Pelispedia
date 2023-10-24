@@ -14,10 +14,9 @@
   margin-bottom: 0px;
   padding-top: 50px;
   padding-left: 10px;
-  
 }
 
-.tituloResult2 { 
+.tituloResult2 {
   color: gray;
   text-align: left;
   font-family: Arial, Helvetica, sans-serif;
@@ -28,7 +27,7 @@
   padding-left: 10px;
 }
 
-.movie-grid{
-    margin-top: 0px;
-    margin-bottom: 0px;
+.movie-grid {
+  margin-top: 0px;
+  margin-bottom: 0px;
 }

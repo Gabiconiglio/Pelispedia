@@ -11,8 +11,8 @@ function Results() {
   const [dataSeries, setdataSeries] = useState([]);
   const [favorites, setFavorites] = useState([]);
   const { query } = useParams();
-  const catPeliculas = "Films";
-  const catSeries = "Series";
+  const catPeliculas = "FilmsDet";
+  const catSeries = "SeriesDet";
 
   useEffect(() => {
     fetch(

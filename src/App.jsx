@@ -16,13 +16,15 @@ function App() {
       <Nabvar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/Films" element={<Films/>} />
-        <Route path="/Films/:idDetail" element={<Films/>} />
-        <Route path="/Series" element={<Series/>} />
+        <Route path="/Films" element={<Films />} />
+        <Route path="/Series" element={<Series />} />
         <Route path="/Favoritos" element={<Favoritos />} />
         <Route path="/:category/Detail/:idDetail" element={<Detail />} />
-        <Route path='/results/:query' element={<Results />}/>
-        <Route path='/results/:query/:category/Detail/:idDetail' element={<Detail />}/>
+        <Route path="/results/:query" element={<Results />} />
+        <Route
+          path="/results/:query/:category/Detail/:idDetail"
+          element={<Detail />}
+        />
         <Route path="*" element={<NotFound404 />} />
       </Routes>
       <Footer />

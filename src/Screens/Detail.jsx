@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import CardDetail from "../Components/CardDetail/CardDetail.jsx";
 import "../Css/Detail.css";
 
-function Detail(cat) {
+function Detail() {
   const [movies, setMovies] = useState([]);
   const [series, setSeries] = useState([]);
   const [favorites, setFavorites] = useState([]);
@@ -12,8 +12,7 @@ function Detail(cat) {
   const BASE_URL_MOVIES = `https://api.themoviedb.org/3/movie/${idDetail}?api_key=4cb4d24dfb40658a8f14ee7e34eeecec&language=es-es`;
   const BASE_URL_SERIES = `https://api.themoviedb.org/3/tv/${idDetail}?api_key=4cb4d24dfb40658a8f14ee7e34eeecec&language=es-es`;
 
-
-  if (category === "Films" || cat === "Films") {
+  if (category === "Films") {
     useEffect(() => {
       fetch(BASE_URL_MOVIES)
         .then((res) => res.json())

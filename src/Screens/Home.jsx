@@ -8,7 +8,7 @@ import "../Css/Home.css";
 function Home() {
   const [movies, setMovies] = useState([]);
   const [favorites, setFavorites] = useState([]);
-  const categoria = "Films";
+  const categoria = "FilmsHome";
   const BASE_URL =
     "https://api.themoviedb.org/3/movie/upcoming?api_key=4cb4d24dfb40658a8f14ee7e34eeecec&language=es-es";
 
@@ -21,7 +21,7 @@ function Home() {
   }, []);
 
   useEffect(() => {
-    const storedFavorites = JSON.parse(localStorage.getItem('favorites'));
+    const storedFavorites = JSON.parse(localStorage.getItem("favorites"));
     storedFavorites && setFavorites(storedFavorites);
   }, []);
 
@@ -31,24 +31,24 @@ function Home() {
       <div className="Carrusel">
         <Carrusel id="caruselHome" />
       </div>
-        <h1 className="tituloHome2">Nuevos ingresos</h1>
-        <ul className="movie-grid">
-          {movies.length > 0 ? (
-            movies
-              .slice(0, 20)
-              .map((movie) => (
-                <Cards
+      <h1 className="tituloHome2">Nuevos ingresos</h1>
+      <ul className="movie-grid">
+        {movies.length > 0 ? (
+          movies
+            .slice(0, 20)
+            .map((movie) => (
+              <Cards
                 key={movie.id}
                 data={movie}
                 categoria={categoria}
                 favorites={favorites}
-                setFavorite={setFavorites}               
-                />
-              ))
-          ) : (
-            <DotPulse size={40} speed={1.3} color="black" />
-          )}
-        </ul>
+                setFavorite={setFavorites}
+              />
+            ))
+        ) : (
+          <DotPulse size={40} speed={1.3} color="black" />
+        )}
+      </ul>
     </>
   );
 }

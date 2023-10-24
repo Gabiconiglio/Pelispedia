@@ -1,20 +1,19 @@
-.movie-grid{
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr)); 
-    gap: 1rem; 
-    justify-items: center;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 8px;
-    color: gray;
-    padding-top: 25px;
-    padding-bottom: 30px;
-    padding-left: 10px;
-    padding-right: 10px;
- 
+.movie-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+  justify-items: center;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 8px;
+  color: gray;
+  padding-top: 25px;
+  padding-bottom: 30px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
-.titulo{
-    padding-top: 70px;
-    color: gray;
-    text-align: center;
+.titulo {
+  padding-top: 70px;
+  color: gray;
+  text-align: center;
 }

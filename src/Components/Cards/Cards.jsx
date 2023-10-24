@@ -1,23 +1,33 @@
-import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import imagen from "../Cards/noDisponible.jpg";
-
 import "../Cards/Cards.css";
 
 function Card({ data, categoria, setFavorite, favorites }) {
   const API_IMG = "https://image.tmdb.org/t/p/w500";
 
-  const isFavorite =
-    favorites && Array.isArray(favorites) && favorites.includes(data.id);
+  const isFavorite = favorites.some(
+    (item) => item.id === data.id && item.categoria === categoria
+  );
 
   const handleFavorite = () => {
     if (Array.isArray(favorites)) {
-      const updatedFavorites = isFavorite
-        ? favorites.filter((id) => id !== data.id)
-        : [...favorites, data.id];
+      const isFavorite = favorites.some(
+        (item) => item.id === data.id && item.categoria === categoria
+      );
 
-      setFavorite(updatedFavorites);
-      localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
+      if (isFavorite) {
+        const updatedFavorites = favorites.filter(
+          (item) => item.id !== data.id && item.categoria !== categoria
+        );
+
+        setFavorite(updatedFavorites);
+        localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
+      } else {
+        const updatedFavorites = [...favorites, { id: data.id, categoria }];
+
+        setFavorite(updatedFavorites);
+        localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
+      }
     }
   };
 
@@ -54,9 +64,15 @@ function Card({ data, categoria, setFavorite, favorites }) {
               <Link
                 to={
                   categoria === "Films"
-                    ? `Films/detail/${data.id}`
+                    ? `detail/${data.id}`
                     : categoria === "Series"
+                    ? `detail/${data.id}`
+                    : categoria === "FilmsDet"
+                    ? `Films/detail/${data.id}`
+                    : categoria === "SeriesDet"
                     ? `Series/detail/${data.id}`
+                    : categoria === "FilmsHome"
+                    ? `Films/detail/${data.id}`
                     : `detail/${data.id}`
                 }
                 style={{ color: "gray", textDecoration: "none" }}
@@ -69,11 +85,7 @@ function Card({ data, categoria, setFavorite, favorites }) {
               className="btn btn-dark"
               style={{ color: isFavorite ? "red" : "white" }}
             >
-              {favorites &&
-              Array.isArray(favorites) &&
-              favorites.includes(data.id)
-                ? "❤"
-                : "🤍"}
+              {isFavorite ? "❤" : "🤍"}
             </button>
           </div>
         </div>
