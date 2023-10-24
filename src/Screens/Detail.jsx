@@ -81,7 +81,11 @@ function Detail() {
           ) : null}
           <p id="fecha">
             <strong>Fecha de lanzamiento: </strong>
-            {movies?.release_date || series?.first_air_date || "No disponible"}
+            {series && series.first_air_date
+              ? new Date(series.first_air_date).toLocaleDateString("es-ES")
+              : movies && movies.release_date
+              ? new Date(movies.release_date).toLocaleDateString("es-ES")
+              : "No disponible"}
           </p>
           <p id="puntuacion">
             <strong>Puntuación: </strong>
